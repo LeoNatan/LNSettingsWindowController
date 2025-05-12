@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleShortVersionString</key>
+	<string>1.-1</string>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>ISGraphicIconConfiguration</key>
+		<dict>
+			<key>ISEnclosureColor</key>
+			<string>red</string>
+			<key>ISRenderingMode</key>
+			<string>automatic</string>
+			<key>ISSymbolColor</key>
+			<string>white</string>
+			<key>ISSymbolName</key>
+			<string>macwindow</string>
+		</dict>
+	</dict>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+</dict>
+</plist>
