@@ -213,7 +213,10 @@ static unsigned short const CCNEscapeKey = 53;
 	
 	self.window.title = viewController.settingsTitle;
 	
-	viewController.view.alphaValue = 0;
+	if(animate)
+	{
+		viewController.view.alphaValue = 0;
+	}
 	viewController.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 	
 	if(self.allowsVibrancy)
@@ -230,28 +233,20 @@ static unsigned short const CCNEscapeKey = 53;
 		self.window.contentView = view;
 	}
 	
-	if(animate == NO)
-	{
-		[viewController.view setAlphaValue:1.0];
-	}
-	
-	[self.window setFrame:newWindowFrame display:YES animate:animate];
-	
-	void (^handler)(void) = ^{
-		if(animate)
-		{
-			[viewController.view setAlphaValue:1.0];
-		}
-		self.activeViewController = viewController;
-	};
-	
 	if(animate)
 	{
-		dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animate * [self.window animationResizeTime:newWindowFrame] * NSEC_PER_SEC)), dispatch_get_main_queue(), handler);
+		[NSAnimationContext runAnimationGroup:^(NSAnimationContext * _Nonnull context) {
+			context.duration = 0.5 * [self.window animationResizeTime:newWindowFrame];
+			[self.window.animator setFrame:newWindowFrame display:YES];
+		} completionHandler:^{
+			viewController.view.alphaValue = 1.0;
+			self.activeViewController = viewController;
+		}];
 	}
 	else
 	{
-		handler();
+		[self.window setFrame:newWindowFrame display:YES];
+		self.activeViewController = viewController;
 	}
 }
 

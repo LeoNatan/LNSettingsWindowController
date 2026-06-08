@@ -2,7 +2,11 @@
 
 `LNSettingsWindowController` is an `NSWindowController` subclass that manages your custom view controllers for handling app settings.
 
-<p align="center"><picture><source srcset="./Supplements/Settings.png" media="(prefers-color-scheme: light)" width="606"/><source srcset="./Supplements/Settings-Dark.png"  media="(prefers-color-scheme: dark) width="606""/><img src="./Supplements/Settings.png" width="606"/></picture></p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./Supplements/Settings-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="./Supplements/Settings.png">
+  <img src="./Supplements/Settings.png">
+</picture>
 
 ## Adding to Your Project
 
